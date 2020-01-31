@@ -50,8 +50,7 @@ class ViewController: UIViewController {
     }
 }
 
-//In Swift 4.2 we were using completion block with the escaping having two variables one error and one expected Obj.
-
+/// In Swift 4.2 we were using completion block with the escaping having two variables one error and one expected Obj.
 fileprivate func fetchCoursesJSON_4_2(completion: @escaping ([Course]?, Error?) -> ()) {
     
     let urlString = "http://api.letsbuildthatapp.com/jsondecodable/courses"
@@ -81,7 +80,7 @@ fileprivate func fetchCoursesJSON_4_2(completion: @escaping ([Course]?, Error?) 
     }.resume()
 }
     
-    
+/// In Swift 5 we get Result Type which gives a proper idea to define the result type.
 fileprivate func fetchCoursesJSON_5(completion: @escaping (Result<[Course], Error>) -> ()) {
     
     let urlString = "http://api.letsbuildthatapp.com/jsondecodable/courses"
@@ -111,7 +110,6 @@ fileprivate func fetchCoursesJSON_5(completion: @escaping (Result<[Course], Erro
     }.resume()
 }
 
-
 enum SelfGeneratedError: Error {
     case unknownError
     case nilResponse
@@ -128,4 +126,3 @@ extension SelfGeneratedError: LocalizedError {
         }
     }
 }
-
